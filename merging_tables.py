@@ -6,7 +6,7 @@ n, m = map(int, sys.stdin.readline().split())
 lines = list(map(int, sys.stdin.readline().split()))
 rank = [0] * n
 parents = list(range(0, n))
-answers = []
+answers = [max(lines)]
 
 def getParent(table):
     balance_parents = []
