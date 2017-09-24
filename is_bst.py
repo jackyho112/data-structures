@@ -7,12 +7,12 @@ threading.stack_size(2**25)  # new thread will get stack of such size
 
 def find_children_min(tree, store, index):
     immediate_child_index = store[index][1]
-    current_level = store[immediate_child_index]
 
     if immediate_child_index == -1:
         store[index][3] = tree[index]
         return tree[index]
 
+    current_level = store[immediate_child_index]
     mini = tree[immediate_child_index]
 
     while current_level[0] != -1:
@@ -58,13 +58,13 @@ def isBinarySearchTree(tree, store):
       if childInfo[0] != -1:
           if childInfo[2] != None and childInfo[2] > node:
               return False
-          elif find_children_max(tree, store, index) and childInfo[2] > node:
+          elif find_children_max(tree, store, index) > node:
               return False
 
       if childInfo[1] != -1:
           if childInfo[3] != None and childInfo[3] < node:
               return False
-          elif find_children_min(tree, store, index) and childInfo[3] < node:
+          elif find_children_min(tree, store, index) < node:
               return False
 
   return True
